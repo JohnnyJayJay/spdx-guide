@@ -1,5 +1,5 @@
 // Copyright (C) 2022  JohnnyJayJay
-use std::cmp::{max, min};
+use std::cmp::{min, Reverse};
 use std::collections::{HashMap};
 use std::path::PathBuf;
 use git2::{Oid, Repository};
@@ -17,6 +17,8 @@ impl Git {
             .and_then(|r| r.name().map(String::from))
     }
 }
+
+
 
 impl Vcs for Git {
     fn open_at(path: &PathBuf) -> Option<Self> {
@@ -53,28 +55,32 @@ impl Vcs for Git {
 
         let mut authors = Vec::new();
         let mut authors_seen = HashMap::new();
-        if let Some(log) = head_ref.as_ref().and_then(|h| self.repo.reflog(h).ok()) {
-            for log_entry in log.iter() {
-                let committer = log_entry.committer();
-                if let Some(name) = committer.name() {
+
+        if let Ok(revwalk) = self.repo.revwalk().and_then(|mut walk| { walk.push_head()?; Ok(walk) }) {
+            for commit in revwalk.map(|node| node.and_then(|id| self.repo.find_commit(id))).filter_map(|res| res.ok()) {
+                //println!("{:?}: {} ({})", commit.time(), commit.message().unwrap_or_default(), commit.author());
+                let author = commit.author();
+                if let Some(name) = author.name() {
                     let name = name.to_string();
-                    match authors_seen.remove(&name) {
+                    let user = User { name, email: author.email().map(String::from) };
+                    match authors_seen.remove(&user) {
                         None => {
-                            authors_seen.insert(name.clone(), 0u32);
-                            authors.push(User { name, email: committer.email().map(String::from) });
+                            authors_seen.insert(user.clone(), (0u32, commit.time()));
+                            authors.push(user);
                         }
-                        Some(count) => {
-                            authors_seen.insert(name, count + 1);
+                        Some((count, _)) => {
+                            authors_seen.insert(user, (count + 1, commit.time()));
                         }
                     }
-
                 }
-            }
+             }
         }
 
-        let oldest_authors = Vec::from(&authors[max(0, authors.len() as i32 - 5) as usize..]);
-        authors.sort_by_key(|u| authors_seen.get(&u.name));
-        let active_authors = Vec::from(&authors[..min(5, authors.len())]);
+        let max = min(5, authors.len());
+        authors.sort_by_key(|u| Reverse(authors_seen[u].0));
+        let active_authors = Vec::from(&authors[..max]);
+        authors.sort_by_key(|u| authors_seen[u].1);
+        let oldest_authors = Vec::from(&authors[..max]);
 
         let version_str = head_tag.as_ref().and_then(|name| name.strip_prefix("refs/tags/").map(String::from));
         VcsInfo {

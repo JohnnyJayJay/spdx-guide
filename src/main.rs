@@ -75,6 +75,8 @@ fn main() -> io::Result<()> {
     };
     println!("{}", result);
 
+    //dbg!(&vcs_info);
+
     let theme = ColorfulTheme::default();
     let mut doc = SpdxDocument::default();
     let mut data = SetupData {
