@@ -33,14 +33,3 @@ impl ToString for User {
             .map_or_else(|| "".to_string(), |email| format!(" ({})", email)))
     }
 }
-
-impl VcsInfo {
-
-    pub fn download_locations(&self, remote_url: &str) -> Vec<String> {
-        let mut result = Vec::with_capacity(self.head_refs.len() + 1);
-        result.push(format!("{}+{}", self.vcs_name, remote_url));
-        result.extend((&self.head_refs).into_iter()
-            .map(|r| format!("{}+{}@{}", self.vcs_name, remote_url, r)));
-        result
-    }
-}
