@@ -5,7 +5,6 @@ mod model;
 mod steps;
 mod vcs;
 
-use std::env::current_dir;
 use std::io;
 use std::path::{PathBuf};
 use clap::Parser;
