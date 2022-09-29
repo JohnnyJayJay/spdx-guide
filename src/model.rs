@@ -33,7 +33,7 @@ pub struct SpdxSection {
 
 impl SpdxSection {
     pub fn add_entry<T: Into<String>, V: Into<String>>(&mut self, tag: T, value: V) {
-        self.lines.push(SpdxLine::Entry(SpdxEntry { tag: tag.into(), value: value.into() }))
+        self.lines.push(SpdxLine::Entry(SpdxEntry::new(tag.into(), value.into())));
     }
 
     pub fn add_comment<T: Into<String>>(&mut self, comment: T) {
