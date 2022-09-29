@@ -5,6 +5,7 @@ mod model;
 mod steps;
 mod vcs;
 
+use std::env::current_dir;
 use std::io;
 use std::path::{PathBuf};
 use clap::Parser;
@@ -27,7 +28,7 @@ struct Args {
 
     /// Directory to run spdx-guide in
     #[clap(short, long, default_value = ".")]
-    dir: PathBuf,
+    pub dir: PathBuf,
 
     /// SPDX file to generate/update, relative to --dir
     #[clap(short, long, default_value = "LICENSE.spdx")]
@@ -55,8 +56,8 @@ fn detect_vcs(path: &PathBuf) -> Option<VcsInfo> {
 }
 
 fn main() -> io::Result<()> {
-    let args = Args::parse();
-
+    let mut args = Args::parse();
+    args.dir = args.dir.canonicalize().expect("Unable to canonicalize --dir path");
 
     let mut term = Term::stderr();
 
