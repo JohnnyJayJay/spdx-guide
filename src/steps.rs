@@ -66,6 +66,7 @@ fn select_or_input<T: ToString>(data: &SetupData, items: &[T], select_prompt: &s
             .with_prompt(select_prompt)
             .items(items)
             .item(fl!(data.i18n, "other"))
+            .default(0)
             .interact_on_opt(data.term)?
     };
 
