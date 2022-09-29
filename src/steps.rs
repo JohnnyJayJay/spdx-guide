@@ -181,7 +181,7 @@ impl SetupStep for DocumentNameStep {
     fn run(&self, data: &mut SetupData) -> io::Result<Option<Box<dyn SetupStep>>> {
         let input = Input::<String>::with_theme(data.theme)
             .with_prompt(fl!(data.i18n, "doc-name-prompt"))
-            .with_initial_text(
+            .default(
                 format!("{}{}",
                         data.doc.package_section.find("PackageName")[0],
                         data.doc.package_section.find("PackageVersion")
