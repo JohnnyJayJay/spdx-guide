@@ -1,0 +1,36 @@
+detecting-vcs = Attempting to detect VCS at { $dir }...
+found-vcs = Found VCS: { $name }
+no-vcs = No VCS found.
+creator-person-prompt = Who are you? (q to skip)
+creator-custom-person-prompt = State who you are (`Name (OptionalEmail)`)
+creator-has-org-prompt = Are you creating this document on behalf of an organisation?
+creator-org-prompt = State the name of your organisation (`Name (OptionalEmail)`)
+name-prompt = What is the name of this project?
+version-prompt = What version are you creating this file for? (leave empty if version independent)
+doc-name-prompt = What should the name of this document be? (leave default if unsure)
+doc-host-available-prompt = Do you have a central place where you host SPDX files?
+doc-host-prompt =
+select-supplier-prompt = Who distributes this package? (person or organisation) (q to skip)
+input-supplier-prompt = Enter the name of the package supplier
+ask-different-originator-prompt = Was the package originally created by someone else?
+select-originator-prompt = Who originally created this package? (person or organisation) (q to skip)
+input-originator-prompt = Enter the name of the package originator
+ask-person-or-org = Is this a person or an organisation?
+person = Person
+org = Organisation
+go-back = Go Back
+download-select-prompt = Where can this package be downloaded?
+download-rev-select-prompt = At which branch, tag or revision can this package be located? (q to skip)
+download-rev-input-prompt = Specify the branch, tag or revision
+other-download-prompt = Enter a URL at which this package can be downloaded
+license-input-prompt = Please specify the SPDX license identifier for this package.
+    Not sure what this means? Check out https://github.com/david-a-wheeler/spdx-tutorial#spdx-license-identifiers
+ask-verif-code = Do you want to generate a verification code from the current state of this package?
+    This only makes sense if you're creating this document specifically for the current state.
+filename-prompt = What should the name of the SPDX file be?
+creating-file = Information collected. Creating file...
+error = Error
+other = Other...
+no-assertion = No Assertion
+none = None
+nowhere = Nowhere
