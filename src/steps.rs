@@ -57,7 +57,7 @@ impl SetupStep for FixedDocumentPropertiesStep {
 }
 
 /// Display a selection prompt of the provided items + "Other" at the end. If "Other" is selected, the user can enter a custom value in a following input prompt.
-fn select_or_input<T: ToString>(data: &SetupData, mut items: &[T], select_prompt: &str, input_prompt: &str) -> io::Result<Option<String>> {
+fn select_or_input<T: ToString>(data: &SetupData, items: &[T], select_prompt: &str, input_prompt: &str) -> io::Result<Option<String>> {
     let last = items.len();
     let select_res = if items.is_empty() {
         Some(last)
@@ -92,11 +92,13 @@ struct CreatorPersonStep;
 
 impl SetupStep for CreatorPersonStep {
     fn run(&self, data: &mut SetupData) -> io::Result<Option<Box<dyn SetupStep>>> {
-        let mut items = vec![format!("{} ()", username()), format!("{} ()", realname())];
+        let mut items = Vec::new();
         if let Some(user) = data.vcs.as_ref()
             .and_then(|vcs| vcs.user.as_ref().map(User::to_string)) {
             items.push(user);
         }
+        items.push(format!("{} ()", username()));
+        items.push(format!("{} ()", realname()));
 
         let select_prompt = &fl!(data.i18n, "creator-person-prompt");
         let input_prompt = &fl!(data.i18n, "creator-custom-person-prompt");
