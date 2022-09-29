@@ -348,6 +348,7 @@ impl SetupStep for DownloadLocationInitialStep {
             .item(fl!(data.i18n, "nowhere"))
             .item(fl!(data.i18n, "no-assertion"))
             .item(fl!(data.i18n, "other"))
+            .default(0)
             .interact_on(data.term)?;
 
         const DIRECT_CHOICES: [&str; 2] = ["NONE", "NOASSERTION"];
