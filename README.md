@@ -27,6 +27,9 @@ spdx-guide *will not* (for now):
 - give you legal advice
 - pick a license for you
 
+## Usage
+Just run `spdx-guide` in your project directory. See `spdx-guide --help` for more info.
+
 ## Installation
 ### Via Cargo
 Run `cargo install spdx-guide`. The executable will end up in `~/.cargo/bin/`, so if that is in your `PATH`, 
