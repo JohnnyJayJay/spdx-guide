@@ -27,5 +27,10 @@ spdx-guide *will not* (for now):
 - give you legal advice
 - pick a license for you
 
+## Installation
+### Via Cargo
+Run `cargo install spdx-guide`. The executable will end up in `~/.cargo/bin/`, so if that is in your `PATH`, 
+you will be able to use the application from anywhere.
+
 ## License
 spdx-guide is free software and licensed under the GNU General Public License version 3.0 or any later version, at your discretion.
