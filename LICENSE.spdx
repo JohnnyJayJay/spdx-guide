@@ -16,4 +16,4 @@ SPDXID: SPDXRef-Package-spdx-guide
 PackageName: spdx-guide
 PackageSupplier: Person: JohnnyJayJay (johnnyjayjay02@gmail.com)
 DownloadLocation: git+git@github.com:JohnnyJayJay/spdx-guide.git@refs/heads/main
-DeclaredLicense: GPL-2.0-or-later
+DeclaredLicense: GPL-3.0-or-later
