@@ -376,7 +376,7 @@ impl SetupStep for AddRevisionToVcsDownloadLocationStep {
             let select_prompt = fl!(data.i18n, "download-rev-select-prompt");
             let input_prompt = fl!(data.i18n, "download-rev-input-prompt");
             let rev = select_or_input(data, items, &select_prompt, &input_prompt)?;
-            data.doc.package_section.add_entry("DownloadLocation", format!("{}+{}@{}", vcs.vcs_name, self.base_url, rev.unwrap_or_default()));
+            data.doc.package_section.add_entry("DownloadLocation", format!("{}+{}{}", vcs.vcs_name, self.base_url, rev.map(|r| format!("@{}", r)).unwrap_or_default()));
             step(DeclaredLicenseStep)
         } else {
             step(DeclaredLicenseStep)
