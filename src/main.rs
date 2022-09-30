@@ -82,6 +82,7 @@ fn main() -> io::Result<()> {
     let mut data = SetupData {
         vcs: vcs_info,
         doc: &mut doc,
+        creators: Vec::new(),
         term: &mut term,
         dir: &path,
         filename: args.file,

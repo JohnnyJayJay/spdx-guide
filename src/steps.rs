@@ -16,6 +16,7 @@ use crate::vcs::{User, VcsInfo};
 
 pub struct SetupData<'a> {
     pub vcs: Option<VcsInfo>,
+    pub creators: Vec<String>,
     pub doc: &'a mut SpdxDocument,
     pub term: &'a mut Term,
     pub filename: String,
@@ -106,6 +107,7 @@ impl SetupStep for CreatorPersonStep {
         match select_or_input(data, items.as_slice(), select_prompt, input_prompt)? {
             Some(person) => {
                 data.doc.document_section.add_entry("Creator", format!("Person: {}", person));
+                data.creators.push(person);
                 step(CreatorHasOrgStep)
             }
             None => step(CreatorHasOrgStep)
@@ -140,6 +142,7 @@ impl SetupStep for CreatorOrgStep {
             .interact_on(data.term)?;
         if !org.is_empty() {
             data.doc.document_section.add_entry("Creator", format!("Organization: {}", org));
+            data.creators.push(org);
         }
         step(PackageNameStep)
     }
@@ -216,6 +219,7 @@ trait AuthorStep: Default {
 impl<T: AuthorStep + FinishStep + Default + Clone + 'static> SetupStep for T {
     fn run(&self, data: &mut SetupData) -> io::Result<Option<Box<dyn SetupStep>>> {
         let mut items: Vec<String> = data.vcs.as_ref().map(|vcs| self.get_relevant_authors(vcs).into_iter().map(User::to_string).collect()).unwrap_or_default();
+        items.extend_from_slice(&data.creators);
         let noassertion = fl!(data.i18n, "no-assertion");
         items.push(noassertion.clone());
         let select_prompt = data.i18n.get(&format!("select-{}-prompt", self.name()));
