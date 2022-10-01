@@ -1,4 +1,4 @@
-detecting-vcs = Tentando detectar o VCS at { $dir }...
+detecting-vcs = Tentando detectar o VCS em { $dir }...
 found-vcs = VCS encontrado: { $name }
 no-vcs = Nenhum VCS encontrado.
 creator-person-prompt = Quem é você? (q para pular)
@@ -33,4 +33,4 @@ error = Error
 other = Outro...
 no-assertion = Nenhuma afirmação
 none = Nulo
-nowhere = Nenhum lugar
+nowhere = Em parte alguma
