@@ -1,0 +1,36 @@
+detecting-vcs = Tentando detectar o VCS at { $dir }...
+found-vcs = VCS encontrado: { $name }
+no-vcs = Nenhum VCS encontrado.
+creator-person-prompt = Quem é você? (q para pular)
+creator-custom-person-prompt = Diga quem você é (`Nome (Email)`)
+creator-has-org-prompt = Você está criando esse documento em nome de uma organização?
+creator-org-prompt = Digite o nome da sua organização (`Nome (Email)`)
+name-prompt = Qual o nome desse projeto?
+version-prompt = Esse arquivo que você está criando pertence a qual versão? (Ignore se a versão for independente)
+doc-name-prompt = What should the name of this document be? (leave default if unsure) Qual deve ser o nome desse documento? (deixe o padrão se tiver incerto)
+doc-host-available-prompt = Você tem um local central onde hospeda os arquivos SPDX?
+doc-host-prompt = Especifique a URL base do seu SPDX file host
+select-supplier-prompt = Who distributes this package? (person or organisation) (q to skip) Quem distribui esse pacote? (pessoa ou organização) (q para pular)
+input-supplier-prompt = Insira o nome do fornecedor do pacote
+ask-different-originator-prompt = O pacote foi criado originalmente por outra pessoa?
+select-originator-prompt = Quem criou originalmente esse pacote (pessoa ou organização) (q para pular)
+input-originator-prompt = Digite o nome do originador do pacote
+ask-person-or-org = Isto é uma pessoa ou organização?
+person = Pessoa
+org = Organização
+go-back = Voltar
+download-select-prompt = Onde esse pacote pode ser baixado?
+download-rev-select-prompt = Em qual branch, tag ou revisão esse pacote pode ser localizado? (q para pular)
+download-rev-input-prompt = Especifique a branch, tag ou revisão
+other-download-prompt = Insira a URL no qual esse pacote pode ser baixado
+license-input-prompt = Por favor, especifique o identificador da licença SPDX para esse pacote
+    Não sabe o que isso significa? Veja em https://github.com/david-a-wheeler/spdx-tutorial#spdx-license-identifiers
+ask-verif-code = Você que gerar um código de verificação pelo estado atual desse pacote?
+    Isso apenas faz sentido se você está criando esse documento especificamente para o estado atual
+filename-prompt = Qual deve ser o nome do arquivo SPDX?
+creating-file = Informação coletada. Criando arquivos...
+error = Error
+other = Outro...
+no-assertion = Nenhuma afirmação
+none = Nulo
+nowhere = Nenhum lugar
