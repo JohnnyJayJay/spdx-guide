@@ -1,0 +1,36 @@
+detecting-vcs = Intentando detectar VCS en { $dir }...
+found-vcs = Se ha encontrado VCS: { $name }
+no-vcs = No se ha encontrado VCS.
+creator-person-prompt = ¿Quién eres? (q para saltar)
+creator-custom-person-prompt = Introduce quién eres (`Nombre (Correo electrónico)`)
+creator-has-org-prompt = ¿Estás creando este documento en nombre de una organización?
+creator-org-prompt = Introduce el nombre de tu organización (`Nombre (Correo electrónico)`)
+name-prompt = ¿Cuál es el nombre de este proyecto?
+version-prompt = ¿Para qué versión estás creando este documento? (deja este campo vacío si la versión es independiente)
+doc-name-prompt = ¿Cómo debería llamarse este documento? (déjalo en predeterminado si no estás seguro)
+doc-host-available-prompt = ¿Tienes un lugar central dónde almacenas archivos SPDX?
+doc-host-prompt = Especifica la URL base de tu host de archivos SPDX
+select-supplier-prompt = ¿Quién distribuye este paquete? (persona u organización) (q para saltar)
+input-supplier-prompt = Introduce el nombre del proveedor del paquete
+ask-different-originator-prompt = ¿Fue el paquete originalmente creado por otra persona?
+select-originator-prompt = ¿Quién creó originalmente este paquete? (persona u organización) (q para saltar)
+input-originator-prompt = Introduce el nombre del creador del paquete
+ask-person-or-org = ¿Es este una persona o una organización?
+person = Persona
+org = Organización
+go-back = Volver atrás
+download-select-prompt = ¿Dónde se puede descargar este paquete?
+download-rev-select-prompt = ¿En qué rama, etiqueta o revisión se encuentra este paquete? (q para saltar)
+download-rev-input-prompt = Especifica la rama, etiqueta o revisión
+other-download-prompt = Introduce una URL en la que se pueda descargar este paquete
+license-input-prompt = Por favor, especifica el identificador de licencias SPDX para este paquete.
+    ¿No sabes qué significa esto? Entra en la página https://github.com/david-a-wheeler/spdx-tutorial#spdx-license-identifiers
+ask-verif-code = ¿Quieres generar un código de verificación del actual estado del paquete?
+    Esto solo tiene sentido si estás creando este documento específicamente para el estado actual.
+filename-prompt = ¿Cuál quieres que sea el nombre del archivo SPDX?
+creating-file = Información recolectada. Creando archivo...
+error = Error
+other = Otro...
+no-assertion = No hay aserción
+none = Ninguno
+nowhere = En ninguna parte
