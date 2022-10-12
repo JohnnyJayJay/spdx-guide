@@ -1,6 +1,8 @@
 # spdx-guide
 `spdx-guide` is a super simple command line tool to get you started with the creation of **simple** [SPDX](https://github.com/david-a-wheeler/spdx-tutorial) files.
 
+[![asciicast](https://asciinema.org/a/5ugNUTj6v2fSkYzmHPnHl3xlV.svg)](https://asciinema.org/a/5ugNUTj6v2fSkYzmHPnHl3xlV)
+
 ## What is SPDX?
 SPDX is a standard for specifying software licenses and creating Software Bills of Materials (SBOMs) 
 that give licensing information for software and its dependencies in a machine-readable format. 
