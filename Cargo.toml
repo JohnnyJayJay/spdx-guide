@@ -1,6 +1,6 @@
 [package]
 name = "spdx-guide"
-version = "0.2.2"
+version = "0.2.3"
 authors = ["JohnnyJayJay <johnnyjayjay02@gmail.com>"]
 description = "A tool to help you with the creation of spdx files in your projects"
 edition = "2018"
